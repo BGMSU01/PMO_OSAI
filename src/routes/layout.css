@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin '@tailwindcss/forms';
+
+@custom-variant dark (&:is(.dark *));
+
+/* CI กองอาคารสถานที่ มมส: หัวเรื่อง H1–H3 ใช้ Mornamchi (ลิขสิทธิ์เฉพาะ มมส), เนื้อความใช้ Sarabun */
+@font-face {
+	font-family: 'Mornamchi';
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Mornamchi-Light.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Mornamchi';
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Mornamchi-Regular.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Mornamchi';
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	src: url('/fonts/Mornamchi-Bold.woff2') format('woff2');
+}
+
+:root {
+	--radius: 0.75rem;
+	/* ชุดสี CI: Campus Green #00824C บนพื้นขาวนวล #F0EEE9 */
+	--background: #f0eee9;
+	--foreground: #1f2b25;
+	--card: #ffffff;
+	--card-foreground: #1f2a24;
+	--popover: #ffffff;
+	--popover-foreground: #1f2a24;
+	--primary: #00824c;
+	--primary-foreground: #ffffff;
+	--secondary: #e6efe9;
+	--secondary-foreground: #1f2a24;
+	--muted: #f2f1ed;
+	--muted-foreground: #5f6b64;
+	--accent: #e6efe9;
+	--accent-foreground: #00663b;
+	--destructive: oklch(0.577 0.245 27.325);
+	--border: #e2dfd7;
+	--input: #d9d5cb;
+	--ring: #00824c;
+	/* สีเสริมและสีสถานะตามคลังความรู้ Dashboard (CI ฉบับร่าง 1.3): สถานะต้องมีไอคอน + ข้อความกำกับเสมอ */
+	--sage: #568e7b;
+	--mint: #e0f1e9;
+	--yellow: #ffcd22;
+	--ok: #00824c;
+	--warn: #c99700;
+	--warn-fill: #ffcd22;
+	--warn-ink: #2a2200;
+	--bad: #c8372d;
+	--info: #2e7ba3;
+	--nodata: #8a8f8c;
+}
+
+@theme inline {
+	--font-sans: 'Sarabun', 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Mornamchi', 'Prompt', 'Sarabun', sans-serif;
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-sage: var(--sage);
+	--color-mint: var(--mint);
+	--color-ok: var(--ok);
+	--color-warn: var(--warn);
+	--color-warn-fill: var(--warn-fill);
+	--color-warn-ink: var(--warn-ink);
+	--color-bad: var(--bad);
+	--color-info: var(--info);
+	--color-nodata: var(--nodata);
+	/* ข้อความไทยบนจอไม่ต่ำกว่า 13px */
+	--text-xs: 0.8125rem;
+	--text-xs--line-height: 1.5;
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply bg-background text-foreground font-sans antialiased;
+		line-height: 1.6;
+	}
+	h1,
+	h2,
+	h3,
+	[data-slot='card-title'] {
+		font-family: var(--font-display);
+		font-synthesis: none;
+		line-height: 1.35;
+	}
+	h1,
+	h2 {
+		font-weight: 700;
+	}
+	h3,
+	[data-slot='card-title'] {
+		font-weight: 400;
+	}
+}
