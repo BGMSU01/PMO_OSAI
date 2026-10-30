@@ -26,7 +26,7 @@
 	<a href="/projects" class="text-sm text-muted-foreground hover:underline">← โปรเจกต์ทั้งหมด</a>
 	<div class="flex flex-wrap items-end justify-between gap-3">
 		<div>
-			<h1 class="text-2xl font-semibold">{p.name} {#if p.status === 'archived'}<span class="text-base font-normal text-muted-foreground">(ปิดแล้ว)</span>{/if}</h1>
+			<h1 class="page-title">{p.name} {#if p.status === 'archived'}<span class="text-base font-normal text-muted-foreground">(ปิดแล้ว)</span>{/if}</h1>
 			{#if p.description}<p class="text-sm text-muted-foreground">{p.description}</p>{/if}
 		</div>
 		<div class="flex flex-wrap gap-2">
@@ -59,7 +59,7 @@
 		</Card.Root>
 	{/if}
 
-	<div class="rounded-xl border bg-card">
+	<div class="rounded-2xl border bg-card shadow-card">
 		<Table.Root>
 			<Table.Header>
 				<Table.Row>

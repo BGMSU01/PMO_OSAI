@@ -28,10 +28,11 @@
 	const canMove = (t: (typeof data.tasks)[number]) =>
 		data.user.role === 'admin' || t.assigneeId === data.user.id;
 
-	const colStyle: Record<Status, string> = {
-		todo: 'border-t-zinc-400',
-		doing: 'border-t-blue-500',
-		done: 'border-t-emerald-500'
+	// จุดสีประจำคอลัมน์ (สีสถานะของกองฯ)
+	const colDot: Record<Status, string> = {
+		todo: 'bg-nodata',
+		doing: 'bg-info',
+		done: 'bg-ok'
 	};
 
 	async function move(id: number, status: Status) {
@@ -62,7 +63,7 @@
 <div class="space-y-4">
 	<div class="flex flex-wrap items-end justify-between gap-3">
 		<div>
-			<h1 class="text-2xl font-semibold">Kanban Board</h1>
+			<h1 class="page-title">Kanban Board</h1>
 			<p class="text-sm text-muted-foreground"><span class="hidden lg:inline">ลากการ์ดไปคอลัมน์อื่นเพื่อเปลี่ยนสถานะ (หรือกดปุ่ม ‹ › บนการ์ด)</span><span class="lg:hidden">ปัดซ้าย–ขวาเพื่อดูคอลัมน์ · กด ‹ › บนการ์ดเพื่อเปลี่ยนสถานะ</span></p>
 		</div>
 		<div class="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:flex-wrap sm:items-center">
@@ -88,8 +89,8 @@
 			<section
 				role="list"
 				aria-label={STATUS_LABEL[col.status]}
-				class="flex min-h-[50vh] w-[85%] max-w-sm shrink-0 snap-start flex-col rounded-xl sm:w-[46%] lg:min-h-[60vh] lg:w-auto lg:max-w-none border border-t-4 bg-muted/40 transition-colors {colStyle[col.status]} {overCol === col.status
-					? 'bg-primary/5 ring-2 ring-primary/30'
+				class="flex min-h-[50vh] w-[85%] max-w-sm shrink-0 snap-start flex-col rounded-2xl bg-[#e9e6de]/70 ring-1 ring-border/70 transition-colors sm:w-[46%] lg:min-h-[60vh] lg:w-auto lg:max-w-none {overCol === col.status
+					? 'bg-mint ring-2 ring-primary/40'
 					: ''}"
 				ondragover={(e) => {
 					if (dragId === null) return;
@@ -104,11 +105,12 @@
 					dragId = null;
 				}}
 			>
-				<header class="flex items-center justify-between px-3 py-2.5">
-					<h2 class="font-semibold">
-						{STATUS_LABEL[col.status]} <span class="text-sm font-normal text-muted-foreground">· {STATUS_TH[col.status]}</span>
+				<header class="flex items-center justify-between px-3.5 pt-3 pb-2.5">
+					<h2 class="flex items-center gap-2 font-sans text-sm font-semibold">
+						<span class="size-2.5 rounded-full {colDot[col.status]}"></span>
+						{STATUS_LABEL[col.status]} <span class="font-normal text-muted-foreground">· {STATUS_TH[col.status]}</span>
 					</h2>
-					<span class="rounded-full bg-background px-2 text-sm tabular-nums">{col.tasks.length}</span>
+					<span class="rounded-full bg-card px-2.5 py-0.5 text-xs font-semibold tabular-nums shadow-xs">{col.tasks.length}</span>
 				</header>
 				<div class="flex flex-1 flex-col gap-2 px-2 pb-2">
 					{#each col.tasks as t (t.id)}
@@ -122,7 +124,7 @@
 								e.dataTransfer?.setData('text/plain', String(t.id));
 							}}
 							ondragend={() => (dragId = null)}
-							class="group rounded-lg border bg-card p-3 shadow-xs transition {movable ? 'cursor-grab active:cursor-grabbing' : 'opacity-80'} {dragId === t.id
+							class="group rounded-xl bg-card p-3.5 shadow-card ring-1 ring-black/[0.03] transition hover:-translate-y-0.5 hover:shadow-lg {movable ? 'cursor-grab active:cursor-grabbing' : 'opacity-80'} {dragId === t.id
 								? 'opacity-40'
 								: ''} {pending[t.id] ? 'animate-pulse' : ''}"
 						>

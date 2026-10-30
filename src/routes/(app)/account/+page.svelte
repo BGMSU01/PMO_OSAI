@@ -13,7 +13,7 @@
 <svelte:head><title>บัญชีของฉัน · PMO Tracker</title></svelte:head>
 
 <div class="mx-auto max-w-md space-y-4">
-	<h1 class="text-2xl font-semibold">บัญชีของฉัน</h1>
+	<h1 class="page-title">บัญชีของฉัน</h1>
 	{#if data.user.mustChangePassword}
 		<p class="rounded-xl border border-warn-fill bg-warn-fill/20 px-4 py-3 text-sm text-warn-ink">
 			<b>! กรุณาตั้งรหัสผ่านใหม่ก่อนเริ่มใช้งาน</b> — บัญชีนี้ยังใช้รหัสผ่านเริ่มต้นหรือรหัสที่ Admin ตั้งให้

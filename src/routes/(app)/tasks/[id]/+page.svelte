@@ -24,7 +24,7 @@
 	<div class="flex flex-wrap items-start justify-between gap-3">
 		<div>
 			<p class="text-sm text-muted-foreground">{t.code} · <a class="hover:underline" href="/projects/{t.projectId}">{t.projectName}</a></p>
-			<h1 class="text-2xl font-semibold">{t.title}</h1>
+			<h1 class="page-title">{t.title}</h1>
 			<div class="mt-2 flex flex-wrap items-center gap-2">
 				<StatusBadge status={t.status} />
 				<PriorityBadge priority={t.priority} />

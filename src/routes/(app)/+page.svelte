@@ -26,8 +26,7 @@
 	<!-- ส่วนหัว: ช่วงข้อมูล + อัปเดตล่าสุด + ที่มา -->
 	<header class="flex flex-wrap items-end justify-between gap-3">
 		<div>
-			<p class="font-display text-sm font-light text-muted-foreground">กองอาคารสถานที่ · ระบบติดตามงาน</p>
-			<h1 class="text-2xl text-primary sm:text-3xl">Dashboard ติดตามงานทีม</h1>
+			<h1 class="page-title">Dashboard ติดตามงานทีม</h1>
 			<p class="mt-1 text-sm text-muted-foreground">
 				ข้อมูล ณ {fmtDate(data.today)} · อัปเดตล่าสุด {data.lastUpdated ? fmtDateTime(data.lastUpdated) : '-'} · ที่มา: ฐานข้อมูล PMO Tracker งาน {data.taskCount} รายการ
 			</p>

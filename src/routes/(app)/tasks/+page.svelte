@@ -21,7 +21,7 @@
 <div class="space-y-4">
 	<div class="flex flex-wrap items-end justify-between gap-3">
 		<div>
-			<h1 class="text-2xl font-semibold">งานทั้งหมด</h1>
+			<h1 class="page-title">งานทั้งหมด</h1>
 			<p class="text-sm text-muted-foreground">พบ {data.rows.length} งาน</p>
 		</div>
 		<div class="flex gap-2">
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 
-	<form bind:this={form} class="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap" data-sveltekit-keepfocus data-sveltekit-noscroll>
+	<form bind:this={form} class="toolbar grid grid-cols-2 gap-2 sm:flex sm:flex-wrap" data-sveltekit-keepfocus data-sveltekit-noscroll>
 		<Input name="q" value={data.filters.q} placeholder="ค้นหารหัส / ชื่องาน / หมายเหตุ" class="col-span-2 w-full sm:w-64" oninput={() => form.requestSubmit()} />
 		<select name="assignee" class="{selectClass} w-full sm:w-auto" value={data.filters.assignee} onchange={() => form.requestSubmit()}>
 			<option value="all">ผู้รับผิดชอบ: ทุกคน</option>
@@ -52,7 +52,7 @@
 	<ul class="space-y-2 md:hidden">
 		{#each data.rows as t (t.id)}
 			<li>
-				<a href="/tasks/{t.id}" class="block rounded-xl border bg-card p-3 active:bg-mint/50">
+				<a href="/tasks/{t.id}" class="block rounded-2xl border bg-card shadow-card p-3 active:bg-mint/50">
 					<div class="flex items-center justify-between gap-2 text-xs text-muted-foreground">
 						<span class="truncate">{t.code} · {t.projectName}</span>
 						<PriorityBadge priority={t.priority} />
@@ -73,7 +73,7 @@
 		{/each}
 	</ul>
 
-	<div class="hidden rounded-xl border bg-card md:block">
+	<div class="hidden rounded-2xl border bg-card shadow-card md:block">
 		<Table.Root>
 			<Table.Header>
 				<Table.Row>

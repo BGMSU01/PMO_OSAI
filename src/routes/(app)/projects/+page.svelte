@@ -16,7 +16,7 @@
 <div class="space-y-4">
 	<div class="flex flex-wrap items-end justify-between gap-3">
 		<div>
-			<h1 class="text-2xl font-semibold">โปรเจกต์</h1>
+			<h1 class="page-title">โปรเจกต์</h1>
 			<p class="text-sm text-muted-foreground">ลูกค้า / โครงการทั้งหมด {data.projects.length} รายการ</p>
 		</div>
 		{#if data.user.role === 'admin'}

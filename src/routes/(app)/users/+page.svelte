@@ -20,7 +20,7 @@
 <div class="space-y-4">
 	<div class="flex flex-wrap items-end justify-between gap-3">
 		<div>
-			<h1 class="text-2xl font-semibold">จัดการพนักงาน</h1>
+			<h1 class="page-title">จัดการพนักงาน</h1>
 			<p class="text-sm text-muted-foreground">
 				ใช้งานอยู่ {data.users.filter((u) => u.active).length} คน · ปิดการใช้งาน {data.users.filter((u) => !u.active).length} คน
 			</p>
@@ -56,7 +56,7 @@
 		</Card.Root>
 	{/if}
 
-	<div class="rounded-xl border bg-card">
+	<div class="rounded-2xl border bg-card shadow-card">
 		<Table.Root>
 			<Table.Header>
 				<Table.Row>

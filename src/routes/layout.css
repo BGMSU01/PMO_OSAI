@@ -28,7 +28,7 @@
 }
 
 :root {
-	--radius: 0.75rem;
+	--radius: 0.875rem;
 	/* ชุดสี CI: Campus Green #00824C บนพื้นขาวนวล #F0EEE9 */
 	--background: #f0eee9;
 	--foreground: #1f2b25;
@@ -45,8 +45,8 @@
 	--accent: #e6efe9;
 	--accent-foreground: #00663b;
 	--destructive: oklch(0.577 0.245 27.325);
-	--border: #e2dfd7;
-	--input: #d9d5cb;
+	--border: #e4e0d7;
+	--input: #d6d2c7;
 	--ring: #00824c;
 	/* สีเสริมและสีสถานะตามคลังความรู้ Dashboard (CI ฉบับร่าง 1.3): สถานะต้องมีไอคอน + ข้อความกำกับเสมอ */
 	--sage: #568e7b;
@@ -59,6 +59,13 @@
 	--bad: #c8372d;
 	--info: #2e7ba3;
 	--nodata: #8a8f8c;
+	/* โทนเข้มสำหรับ sidebar และแผงแบรนด์ (Digital Dark ของ CI) */
+	--primary-hover: #006b3e;
+	--deep: #062d1d;
+	--deep-2: #0b3a27;
+	--deep-fg: #c9ddd3;
+	--signal: #00e083;
+	--shadow-card: 0 1px 2px rgb(16 40 28 / 0.05), 0 6px 20px -8px rgb(16 40 28 / 0.12);
 }
 
 @theme inline {
@@ -95,6 +102,12 @@
 	--color-bad: var(--bad);
 	--color-info: var(--info);
 	--color-nodata: var(--nodata);
+	--color-primary-hover: var(--primary-hover);
+	--color-deep: var(--deep);
+	--color-deep-2: var(--deep-2);
+	--color-deep-fg: var(--deep-fg);
+	--color-signal: var(--signal);
+	--shadow-card: var(--shadow-card);
 	/* ข้อความไทยบนจอไม่ต่ำกว่า 13px */
 	--text-xs: 0.8125rem;
 	--text-xs--line-height: 1.5;
@@ -123,5 +136,69 @@
 	h3,
 	[data-slot='card-title'] {
 		font-weight: 400;
+	}
+
+	/* การ์ด: พื้นขาว เส้นขอบบาง เงานุ่มสองชั้น มุม 16px */
+	[data-slot='card'] {
+		--tw-ring-color: var(--border);
+		border-radius: 1rem;
+		box-shadow: var(--shadow-card);
+	}
+	[data-slot='card-title'] {
+		font-size: 1.0625rem;
+	}
+
+	/* ตาราง: หัวตารางพื้นอ่อน แถวมี hover สีมิ้นต์ */
+	[data-slot='table-header'] [data-slot='table-row'] {
+		background: var(--muted);
+	}
+	[data-slot='table-head'] {
+		height: 2.5rem;
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: var(--muted-foreground);
+	}
+	[data-slot='table-body'] [data-slot='table-row']:hover {
+		background: color-mix(in oklab, var(--mint) 55%, transparent);
+	}
+	[data-slot='table-cell'],
+	[data-slot='table-head'] {
+		padding-inline: 0.875rem;
+	}
+
+	/* ช่องกรอกข้อมูลสูงขึ้นเล็กน้อย กดง่ายบนจอสัมผัส */
+	[data-slot='input'] {
+		height: 2.25rem;
+		background: var(--card);
+	}
+	[data-slot='textarea'] {
+		background: var(--card);
+	}
+	/* หัวเรื่องของแต่ละหน้า */
+	.page-title {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 1.625rem;
+		line-height: 1.3;
+		color: var(--foreground);
+	}
+	.page-title + p {
+		margin-top: 0.25rem;
+	}
+	/* แถบตัวกรองแบบการ์ด */
+	.toolbar {
+		background: var(--card);
+		border: 1px solid var(--border);
+		border-radius: 1rem;
+		padding: 0.5rem;
+		box-shadow: var(--shadow-card);
+	}
+	@media (min-width: 640px) {
+		.page-title {
+			font-size: 1.875rem;
+		}
+	}
+	::selection {
+		background: color-mix(in oklab, var(--primary) 22%, transparent);
 	}
 }

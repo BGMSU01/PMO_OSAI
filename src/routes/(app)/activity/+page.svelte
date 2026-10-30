@@ -33,11 +33,11 @@
 
 <div class="space-y-4">
 	<div>
-		<h1 class="text-2xl font-semibold">Activity Log</h1>
+		<h1 class="page-title">Activity Log</h1>
 		<p class="text-sm text-muted-foreground">บันทึกทุกการเปลี่ยนแปลง — ใครแก้อะไร เมื่อไร ({data.total} รายการ)</p>
 	</div>
 
-	<form bind:this={filterForm} class="grid grid-cols-2 items-center gap-2 sm:flex sm:flex-wrap">
+	<form bind:this={filterForm} class="toolbar grid grid-cols-2 items-center gap-2 sm:flex sm:flex-wrap">
 		<select name="user" class="{selectClass} w-full sm:w-auto" value={data.filters.user} onchange={() => filterForm.requestSubmit()}>
 			<option value="all">ทุกคน</option>
 			{#each data.users as u (u.id)}<option value={String(u.id)}>{u.name}</option>{/each}
@@ -63,7 +63,7 @@
 		<p class="rounded-md bg-emerald-50 px-3 py-2 text-sm text-emerald-700">ย้อนกลับเรียบร้อย (บันทึกเป็นรายการใหม่ด้านบน) ✓</p>
 	{/if}
 
-	<div class="rounded-xl border bg-card">
+	<div class="rounded-2xl border bg-card shadow-card">
 		<ul class="divide-y">
 			{#each data.rows as a (a.id)}
 				<li class="flex gap-3 px-4 py-3">
