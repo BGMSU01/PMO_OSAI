@@ -29,8 +29,6 @@ local.db-*
 # ฟอนต์ Mornamchi (ลิขสิทธิ์เฉพาะ มมส) ห้ามขึ้น repository สาธารณะ
 static/fonts/Mornamchi-*
 
-# ไฟล์ SQL ข้อมูลเริ่มต้นที่สร้างจาก local.db (มี hash รหัสผ่าน) — สร้างใหม่ด้วย npm run db:export-sql
-drizzle/seed.sql
 
 # ตั้งค่าเฉพาะเครื่อง
 .claude/

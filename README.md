@@ -77,7 +77,7 @@ Deploy จริง:
 
 1. `npx wrangler d1 create pmo-db` แล้วนำ `database_id` ที่ได้มาใส่ใน `wrangler.jsonc`
 2. `npx wrangler d1 migrations apply pmo-db --remote`
-3. ข้อมูลเริ่มต้น: `npm run db:export-sql` แล้วรัน `npx wrangler d1 execute pmo-db --remote --file=drizzle/seed.sql`
+3. ข้อมูลเริ่มต้น: `npm run db:export-sql` แล้วรัน `npx wrangler d1 execute pmo-db --remote --file=.wrangler/seed.sql`
 4. `npm run build` แล้ว `npx wrangler pages deploy`
 
 เมื่อแก้ `schema.ts` ให้รัน `npm run db:generate` เพื่อสร้างไฟล์ migration ใหม่ในโฟลเดอร์ `drizzle/`

@@ -1,12 +1,12 @@
 /**
  * แปลงข้อมูลใน local.db เป็นไฟล์ SQL สำหรับนำเข้า Cloudflare D1
  * ใช้งาน: npm run db:seed && npm run db:export-sql
- *         npx wrangler d1 execute pmo-db --file=drizzle/seed.sql (--local หรือ --remote)
+ *         npx wrangler d1 execute pmo-db --file=.wrangler/seed.sql (--local หรือ --remote)
  */
 import { writeFileSync } from 'node:fs';
 import { createClient } from '@libsql/client';
 
-const OUT = process.argv[2] ?? 'drizzle/seed.sql';
+const OUT = process.argv[2] ?? '.wrangler/seed.sql'; // ห้ามอยู่ในโฟลเดอร์ drizzle/ เพราะ wrangler จะนับเป็น migration
 const TABLES = ['users', 'projects', 'tasks', 'activity_logs']; // เรียงตาม foreign key
 
 const client = createClient({ url: process.env.DATABASE_URL ?? 'file:local.db' });

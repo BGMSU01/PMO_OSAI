@@ -1,6 +1,6 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "pmo-soai",
+	"name": "pmo-osai",
 	"compatibility_date": "2026-10-30",
 	"compatibility_flags": [
 		"nodejs_als"
@@ -11,7 +11,7 @@
 		{
 			"binding": "DB",
 			"database_name": "pmo-db",
-			"database_id": "36082209-5064-4aec-8cc8-ff221dbf817e",
+			"database_id": "e76ffa43-f44b-4695-8bcd-6ae37ac50353",
 			"migrations_dir": "drizzle"
 		}
 	]

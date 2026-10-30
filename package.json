@@ -18,7 +18,7 @@
 		"db:studio": "drizzle-kit studio",
 		"db:export-sql": "tsx scripts/export-sql.ts",
 		"d1:migrate:local": "wrangler d1 migrations apply pmo-db --local",
-		"d1:seed:local": "npm run db:export-sql && wrangler d1 execute pmo-db --local --file=drizzle/seed.sql"
+		"d1:seed:local": "npm run db:export-sql && wrangler d1 execute pmo-db --local --file=.wrangler/seed.sql"
 	},
 	"devDependencies": {
 		"@internationalized/date": "^3.12.4",
