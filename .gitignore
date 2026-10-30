@@ -34,3 +34,6 @@ drizzle/seed.sql
 
 # ตั้งค่าเฉพาะเครื่อง
 .claude/
+
+# รหัสผ่านเริ่มต้นของระบบจริง (ห้ามขึ้น git)
+.deploy-initial-password.txt

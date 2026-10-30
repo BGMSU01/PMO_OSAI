@@ -6,12 +6,12 @@
 		"nodejs_als"
 	],
 	"pages_build_output_dir": ".svelte-kit/cloudflare",
-	// สร้างด้วย: npx wrangler d1 create pmo-db แล้วนำ database_id ที่ได้มาใส่แทน
+	// D1 บน Cloudflare (สร้างแล้ว ภูมิภาค APAC)
 	"d1_databases": [
 		{
 			"binding": "DB",
 			"database_name": "pmo-db",
-			"database_id": "00000000-0000-0000-0000-000000000000",
+			"database_id": "36082209-5064-4aec-8cc8-ff221dbf817e",
 			"migrations_dir": "drizzle"
 		}
 	]
